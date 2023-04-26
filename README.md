@@ -1,3 +1,3 @@
 # Todo-App
 
-todoappr.netlify.app
+https://todoappr.netlify.app
