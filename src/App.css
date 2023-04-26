@@ -1,0 +1,286 @@
+/* Site Settings */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #5aa9e6;
+  margin: 0 auto;
+}
+
+.App {
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: #f9f9f9;
+  width: 100%;
+  max-width: 960px;
+  margin: 40px auto;
+  border: solid 7px #f9f9f9;
+  background-color: #5aa9e6;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+/* Main Content */
+
+.app-header {
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 50px;
+}
+
+.app-content {
+  padding: 20px;
+}
+
+/* Add Todo Panel */
+
+.show-add-panel {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  border: solid 2px black;
+  color: black;
+  flex-direction: column;
+  padding: 20px;
+  margin-bottom: 50px;
+}
+
+.hide-add-panel {
+  display: none;
+}
+
+.add-to-do {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.input-label {
+  font-weight: 500;
+  font-size: 17px;
+}
+
+.input {
+  height: 35px;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.input-text {
+  width: 100%;
+}
+
+.priority {
+  align-items: center;
+  flex-direction: row-reverse;
+  margin-left: 30px;
+}
+
+.input-checkbox {
+  transform: scale(1.5);
+  margin-right: 10px;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.btn {
+  background: radial-gradient(circle, #5aa9e6 25%, #7fc8f8 100%);
+  border: solid 1px black;
+  border-radius: 5px;
+  color: #f9f9f9;
+  font-weight: 600;
+  width: 80%;
+  padding: 10px 20px;
+}
+
+/* Lists */
+
+.list-header {
+  font-weight: 500;
+  font-size: 25px;
+  margin-bottom: 7px;
+}
+
+/* List Items */
+
+.todo,
+.doneTodo {
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+  font-size: 15px;
+  margin-left: 5px;
+  margin-bottom: 7px;
+  position: relative;
+}
+
+.todo-date {
+  font-size: 12px;
+  font-style: italic;
+  margin-left: 10px;
+}
+
+.priority-todo {
+  transform: scale(1.5);
+  color: red;
+  position: absolute;
+  left: -10px;
+}
+
+.d-btn {
+  border: 1px solid #000000;
+  border-radius: 5px;
+  margin-left: 5px;
+  padding: 3px 7px;
+  color: #f9f9f9;
+  width: 30px;
+  height: 30px;
+}
+
+.function-btn {
+  width: 80px;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.done-btn {
+  background-color: #29bf12;
+}
+
+.delete-btn {
+  background-color: #f02d3a;
+}
+
+.add-new-task-btn {
+  width: 90%;
+}
+
+/* Summary */
+
+.menu {
+  padding: 10px;
+}
+
+.show-summary {
+  padding: 50px;
+  background-color: #f9f9f9;
+  color: #5aa9e6;
+  font-weight: 500;
+  font-size: 20px;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+.hide-summary {
+  display: none;
+}
+
+.user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 80px;
+}
+
+.user-photo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-image: url(./assets/profile-picture.jpg);
+  background-size: cover;
+  margin-bottom: 20px;
+}
+
+/* Decoration Elemets */
+
+/* Media Queries */
+
+@media screen and (min-width: 577px) {
+  /* List Items */
+
+  .todo,
+  .doneTodo {
+    font-size: 20px;
+  }
+
+  .todo-date {
+    font-size: 18px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  /* Site Settings */
+  .App {
+    display: grid;
+    grid-template-columns: [first] 30% [second] 70%;
+    grid-template-rows: [first] auto [second] auto [third] auto;
+  }
+
+  /* Main Content */
+
+  .app-content {
+    grid-column-start: second;
+    grid-row-start: first;
+    grid-row-end: fourth;
+  }
+
+  /* Add Todo Panel */
+
+  .show-add-panel {
+    display: flex;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    border: solid 2px black;
+    color: black;
+    flex-direction: column;
+    padding: 20px;
+    margin-bottom: 50px;
+  }
+
+  .btn {
+    width: 200px;
+  }
+
+  .add-new-task-btn {
+    grid-column-start: second;
+    width: 400px;
+  }
+
+  /* Summary */
+
+  .summary,
+  .hide-summary {
+    display: grid;
+    grid-column-start: first;
+    grid-row-start: first;
+    grid-row-end: fourth;
+    background-color: #f9f9f9;
+    padding: 50px;
+    background-color: #f9f9f9;
+    color: #5aa9e6;
+    font-weight: 500;
+    font-size: 20px;
+  }
+
+  .menu {
+    display: none;
+  }
+}
