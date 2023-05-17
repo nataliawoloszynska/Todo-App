@@ -58,7 +58,6 @@ function App() {
     doneTodos.splice(deleteItem, 1);
     setToDoList(toDoList);
     setDoneTodos(doneTodos);
-    deleteItem.remove();
     setCountTodoElements(toDoList.length);
     setCountDoneElements(doneTodos.length);
   };
