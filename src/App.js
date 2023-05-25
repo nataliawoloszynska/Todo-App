@@ -43,22 +43,35 @@ function App() {
   };
 
   const handleDoneTodo = (e) => {
-    const done = e.target.parentNode.parentNode.parentNode;
-    const doneTask = toDoList.find((listItem) => listItem.id === done.id);
-    setDoneTodos([...doneTodos, { text: doneTask.text, id: uuidv4() }]);
-    toDoList.splice(doneTask, 1);
+    const doneItem = e.target.parentNode.parentNode;
+    const doneTask = toDoList.find((listItem) => listItem.id === doneItem.id);
+    const doneTaskIndex = toDoList.findIndex(
+      (listItem) => listItem.id === doneItem.id
+    );
+    setDoneTodos([...doneTodos, doneTask]);
+    toDoList.splice(doneTaskIndex, 1);
     setToDoList(toDoList);
     setCountDoneElements(doneTodos.length + 1);
     setCountTodoElements(toDoList.length);
   };
 
   const handleDeleteTodo = (e) => {
-    const deleteItem = e.target.parentNode.parentNode.parentNode;
-    toDoList.splice(deleteItem, 1);
-    doneTodos.splice(deleteItem, 1);
+    const deleteItem = e.target.parentNode.parentNode;
+    const deleteItemIndex = toDoList.findIndex(
+      (listItem) => listItem.id === deleteItem.id
+    );
+    toDoList.splice(deleteItemIndex, 1);
     setToDoList(toDoList);
-    setDoneTodos(doneTodos);
     setCountTodoElements(toDoList.length);
+  };
+
+  const handleDeleteDoneTodo = (e) => {
+    const deleteItem = e.target.parentNode.parentNode;
+    const deleteItemIndex = doneTodos.findIndex(
+      (listItem) => listItem.id === deleteItem.id
+    );
+    doneTodos.splice(deleteItemIndex, 1);
+    setDoneTodos(doneTodos);
     setCountDoneElements(doneTodos.length);
   };
 
@@ -108,9 +121,9 @@ function App() {
         <ToDoList
           toDoList={toDoList}
           onDoneTodo={handleDoneTodo}
-          onDeleteTodo={handleDeleteTodo}
+          onDelete={handleDeleteTodo}
         />
-        <DoneTodos doneTodos={doneTodos} onDeleteTodo={handleDeleteTodo} />
+        <DoneTodos doneTodos={doneTodos} onDelete={handleDeleteDoneTodo} />
         <AddNewTaskButton onNewTask={handleNewTask} isActive={isActive} />
       </div>
       <Summary

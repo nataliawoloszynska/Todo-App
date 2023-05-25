@@ -9,6 +9,10 @@ body {
   margin: 0 auto;
 }
 
+button > * {
+  pointer-events: none;
+}
+
 .App {
   font-family: "Roboto", sans-serif;
   font-size: 15px;

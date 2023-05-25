@@ -4,7 +4,7 @@ import { faExclamation } from "@fortawesome/free-solid-svg-icons";
 import DeleteButton from "./DeleteButton";
 import DoneButton from "./DoneButton";
 
-const ToDoList = ({ toDoList, onDoneTodo, onDeleteTodo }) => {
+const ToDoList = ({ toDoList, onDoneTodo, onDelete }) => {
   const todoList = toDoList.map((todo) => (
     <div className="todo" id={todo.id} key={todo.id}>
       {" "}
@@ -17,7 +17,7 @@ const ToDoList = ({ toDoList, onDoneTodo, onDeleteTodo }) => {
       </li>{" "}
       <div className="function-btn">
         <DoneButton onDoneTodo={onDoneTodo} />
-        <DeleteButton onDeleteTodo={onDeleteTodo} />
+        <DeleteButton onDelete={onDelete} />
       </div>
     </div>
   ));
